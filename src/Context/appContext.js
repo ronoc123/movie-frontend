@@ -155,7 +155,7 @@ const AppProvider = ({ children }) => {
   };
 
   const addMovieToWatchList = async (movie) => {
-    dispatch({ type: ADD_MOVIE_BEGIN });
+    // dispatch({ type: ADD_MOVIE_BEGIN });
 
     try {
       const response = await authFetch.post(
@@ -179,7 +179,7 @@ const AppProvider = ({ children }) => {
   };
 
   const getFriends = async () => {
-    dispatch({ type: GET_FRIENDS_BEGIN });
+    // dispatch({ type: GET_FRIENDS_BEGIN });
 
     try {
       const response = await authFetch(
@@ -296,7 +296,7 @@ const AppProvider = ({ children }) => {
     }
   };
   const getFriendsInfo = async (id) => {
-    dispatch({ type: GET_FRIEND_BEGIN });
+    // dispatch({ type: GET_FRIEND_BEGIN });
 
     try {
       const response = await authFetch.get(
@@ -313,7 +313,7 @@ const AppProvider = ({ children }) => {
     }
   };
   const getFriendsMovies = async (id) => {
-    dispatch({ type: GET_FRIEND_WATCHLIST_BEGIN });
+    // dispatch({ type: GET_FRIEND_WATCHLIST_BEGIN });
 
     try {
       const response = await authFetch.get(
@@ -328,7 +328,7 @@ const AppProvider = ({ children }) => {
   };
 
   const getTierList = async () => {
-    dispatch({ type: GET_TIERLIST_BEGIN });
+    // dispatch({ type: GET_TIERLIST_BEGIN });
 
     try {
       const response = await authFetch.get(
