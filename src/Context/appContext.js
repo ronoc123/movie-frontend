@@ -111,7 +111,7 @@ const AppProvider = ({ children }) => {
     try {
       if (endPoint === "authenticate") {
         const response = await axios.post(
-          `http://localhost:8080/api/v1/auth/${endPoint}`,
+          `https://movie-hub-df7ac8f36032.herokuapp.com/api/v1/auth/${endPoint}`,
           currentUser
         );
         const { access_token, current_user } = response.data;
@@ -122,7 +122,7 @@ const AppProvider = ({ children }) => {
         addUserToLocalStorage(current_user, access_token);
       } else {
         const response = await axios.post(
-          `http://localhost:8080/api/v1/auth/${endPoint}`,
+          `https://movie-hub-df7ac8f36032.herokuapp.com/api/v1/auth/${endPoint}`,
           currentUser
         );
         const { access_token, current_user } = response.data;
@@ -142,7 +142,7 @@ const AppProvider = ({ children }) => {
 
     try {
       const response = await authFetch.post(
-        `http://localhost:8080/api/v1/users/movies`,
+        `https://movie-hub-df7ac8f36032.herokuapp.com/api/v1/users/movies`,
         movie
       );
 
@@ -165,7 +165,9 @@ const AppProvider = ({ children }) => {
     dispatch({ type: GET_FRIENDS_BEGIN });
 
     try {
-      const response = await authFetch("http://localhost:8080/api/v1/friends");
+      const response = await authFetch(
+        "https://movie-hub-df7ac8f36032.herokuapp.com/api/v1/friends"
+      );
 
       const { data } = response;
       console.log(data);
@@ -179,7 +181,7 @@ const AppProvider = ({ children }) => {
   const addFriend = async (id) => {
     try {
       const { data } = await authFetch.post(
-        `http://localhost:8080/api/v1/addfriend/${id}`
+        `https://movie-hub-df7ac8f36032.herokuapp.com/api/v1/addfriend/${id}`
       );
 
       getFriends();
@@ -193,7 +195,7 @@ const AppProvider = ({ children }) => {
 
     try {
       const response = await authFetch.delete(
-        `http://localhost:8080/api/v1/friends/${id}`
+        `https://movie-hub-df7ac8f36032.herokuapp.com/api/v1/friends/${id}`
       );
       getFriends();
     } catch (error) {
@@ -206,7 +208,7 @@ const AppProvider = ({ children }) => {
 
     try {
       const response = await authFetch.get(
-        `http://localhost:8080/api/v1/users/movies?size=50`
+        `https://movie-hub-df7ac8f36032.herokuapp.com/api/v1/users/movies?size=50`
       );
       const { data } = response;
 
@@ -219,7 +221,7 @@ const AppProvider = ({ children }) => {
   const favoriteMovie = async (id) => {
     try {
       const { data } = await authFetch.put(
-        `http://localhost:8080/api/v1/movie/favorite/${id}`
+        `https://movie-hub-df7ac8f36032.herokuapp.com/api/v1/movie/favorite/${id}`
       );
       dispatch({
         type: FAVORITE_MOVIE_SUCCESS,
@@ -232,7 +234,7 @@ const AppProvider = ({ children }) => {
   const rateMovie = async (id, rating) => {
     try {
       const { data } = await authFetch.put(
-        `http://localhost:8080/api/v1/movie/watched/${id}`,
+        `https://movie-hub-df7ac8f36032.herokuapp.com/api/v1/movie/watched/${id}`,
         { rating: rating }
       );
       dispatch({
@@ -264,7 +266,7 @@ const AppProvider = ({ children }) => {
 
     try {
       const response = await authFetch.get(
-        `http://localhost:8080/api/v1/users/movies/rated/${id}?size=50`
+        `https://movie-hub-df7ac8f36032.herokuapp.com/api/v1/users/movies/rated/${id}?size=50`
       );
       const { data } = response;
 
@@ -281,7 +283,7 @@ const AppProvider = ({ children }) => {
 
     try {
       const response = await authFetch.get(
-        `http://localhost:8080/api/v1/users/info/${id}`
+        `https://movie-hub-df7ac8f36032.herokuapp.com/api/v1/users/info/${id}`
       );
       const { data } = response;
 
@@ -298,7 +300,7 @@ const AppProvider = ({ children }) => {
 
     try {
       const response = await authFetch.get(
-        `http://localhost:8080/api/v1/users/movies/${id}?size=50`
+        `https://movie-hub-df7ac8f36032.herokuapp.com/api/v1/users/movies/${id}?size=50`
       );
       const { data } = response;
 
@@ -313,7 +315,7 @@ const AppProvider = ({ children }) => {
 
     try {
       const response = await authFetch.get(
-        `http://localhost:8080/api/v1/users/movies/rated/${state.user.id}?size=50`
+        `https://movie-hub-df7ac8f36032.herokuapp.com/api/v1/users/movies/rated/${state.user.id}?size=50`
       );
       const { data } = response;
 
@@ -334,7 +336,7 @@ const AppProvider = ({ children }) => {
     }
     try {
       const response = await authFetch.get(
-        `http://localhost:8080/api/v1/find/friends?filter=${value}`
+        `https://movie-hub-df7ac8f36032.herokuapp.com/api/v1/find/friends?filter=${value}`
       );
       const { data } = response;
       dispatch({ type: FIND_FRIENDS_SUCCESS, payload: data.content });
@@ -356,7 +358,7 @@ const AppProvider = ({ children }) => {
     console.log(formData);
     try {
       const updatedInfo = await axios.put(
-        "http://localhost:8080/api/users/profile-picture",
+        "https://movie-hub-df7ac8f36032.herokuapp.com/api/users/profile-picture",
         formData,
         {
           headers: {
@@ -373,7 +375,7 @@ const AppProvider = ({ children }) => {
   const updateUserInfo = async (newInfo) => {
     try {
       const updatedInfo = await axios.put(
-        "http://localhost:8080/api/users/profile-picture",
+        "https://movie-hub-df7ac8f36032.herokuapp.com/api/users/profile-picture",
         newInfo,
         {
           headers: {
