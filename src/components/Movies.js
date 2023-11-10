@@ -22,7 +22,7 @@ const Movies = () => {
   const getPopularMovies = async () => {
     try {
       const { data } = await axios(
-        `https://api.themoviedb.org/3/movie/popular?api_key=${key}&language=en-US&page=${page}&with_genres=${genreForUrl}`
+        `https://api.themoviedb.org/3/discover/movie?api_key=${key}&language=en-US&page=${page}&with_genres=${genreForUrl}`
       );
       setNumPage(data.total_pages);
       setMovie(data.results);
