@@ -106,6 +106,23 @@ const AppProvider = ({ children }) => {
     removeUserFromLocalStorage();
   };
 
+  const demoLogin = async () => {
+    try {
+      const response = await axios.post(
+        `https://movie-hub-df7ac8f36032.herokuapp.com/api/v1/auth/authenticate`,
+        { email: "demo@gmail.com", password: "123456" }
+      );
+      const { access_token, current_user } = response.data;
+      dispatch({
+        type: SETUP_USER_SUCCESS,
+        payload: { access_token: access_token, user: current_user },
+      });
+      addUserToLocalStorage(current_user, access_token);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const userLogin = async (endPoint, currentUser) => {
     dispatch({ type: SETUP_USER_BEGIN });
     try {
@@ -417,6 +434,7 @@ const AppProvider = ({ children }) => {
         searchForUsers,
         updateUserInfo,
         updateUserImage,
+        demoLogin,
       }}
     >
       {children}

@@ -5,10 +5,11 @@ import { useState, useEffect } from "react";
 import { useAppContext } from "../Context/appContext";
 import { useNavigate } from "react-router-dom";
 import LoadingScreen from "./Loading";
+import { Button } from "@mui/material";
 
 export default function LoginForm() {
   const navigate = useNavigate();
-  const { userLogin, user: currentUser } = useAppContext();
+  const { userLogin, user: currentUser, demoLogin } = useAppContext();
   const [user, setUser] = useState(false);
   const [firstName, setFirstName] = useState("");
   const [password, setPassword] = useState("");
@@ -36,6 +37,10 @@ export default function LoginForm() {
 
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
+  };
+
+  const handleDemoLogin = () => {
+    demoLogin();
   };
 
   useEffect(() => {
@@ -107,6 +112,17 @@ export default function LoginForm() {
           {user === true ? "Login" : "Register"}
         </span>
       </div>
+      <Button
+        style={{
+          color: "black",
+          borderColor: "black",
+          marginTop: "1rem",
+        }}
+        onClick={handleDemoLogin}
+        variant="outlined"
+      >
+        Demo Account
+      </Button>
     </Box>
   );
 }
