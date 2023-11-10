@@ -5,13 +5,18 @@ import { CgProfile } from "react-icons/cg";
 import { useState } from "react";
 import { CgUserRemove } from "react-icons/cg";
 import { useAppContext } from "../../Context/appContext";
-
+import { useNavigate } from "react-router-dom";
 const FriendCard = ({ firstname, lastname, motto, id }) => {
   const { deleteFriend } = useAppContext();
   const [popup, setPopup] = useState(false);
+
+  const navigate = useNavigate();
+  const handleClick = (id) => {
+    navigate(`/user/${id}`);
+  };
   return (
     <div className="friend-container">
-      <div className="info-container">
+      <div className="info-container" onClick={handleClick}>
         <div className="profile-icon">
           <CgProfile />
         </div>

@@ -96,6 +96,7 @@ const Wrapper = styled.div`
     display: flex;
     grid-template-columns: 1fr 8fr;
     place-items: center;
+    cursor: pointer;
   }
   .follow-btn {
     padding: 2rem;

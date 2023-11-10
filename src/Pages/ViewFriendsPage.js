@@ -4,6 +4,7 @@ import FriendCard from "../components/User/FriendCard";
 import { useAppContext } from "../Context/appContext";
 import { useEffect } from "react";
 import CustomSearchBar from "../components/navigation/CustomSearchBar";
+import { useNavigate } from "react-router-dom";
 
 const ViewFriendsPage = () => {
   const { getFriends, userFollowing } = useAppContext();
