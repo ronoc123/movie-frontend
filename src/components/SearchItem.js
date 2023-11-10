@@ -15,9 +15,16 @@ const SearchItem = ({ id, firstname, lastname }) => {
   };
   return (
     <button className="person-container" onMouseDown={handleClick}>
-      <div className="icon">
-        <CgProfile />
-      </div>
+      {user?.profilePicture ? (
+        <img
+          src={`/api/users/${user.id}/profile-picture/${user.profilePicture}`}
+          alt="picture"
+        />
+      ) : (
+        <div className="icon">
+          <CgProfile />
+        </div>
+      )}
       <div className="text-container">
         {firstname} {lastname}
       </div>
