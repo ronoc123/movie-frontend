@@ -17,15 +17,17 @@ const Tvseries = () => {
   const [singleMovie, setSingleMovie] = useState();
   const [showModal, setShowModal] = useState(false);
 
-  let genreForUrl = useGenre(activeGenres);
+  // let genreForUrl = useGenre(activeGenres);
+  let genreForUrl = "28,12,878";
   let key = process.env.REACT_APP_MOVIES_API;
 
   const getPopularMovies = async () => {
     try {
+      console.log(genreForUrl);
       const { data } = await axios(
         `https://api.themoviedb.org/3/tv/popular?api_key=${key}&language=en-US&page=${page}&with_genres=${genreForUrl}`
       );
-
+      console.log(data);
       setNumPage(data.total_pages);
       setMovie(data.results);
     } catch (error) {

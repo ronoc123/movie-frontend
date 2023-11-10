@@ -65,7 +65,7 @@ const UserCard = () => {
           <span className="title">favorites</span>
         </div>
       </div>
-      <Button
+      {/* <Button
         onClick={handleOpen}
         style={{
           color: "white",
@@ -77,7 +77,7 @@ const UserCard = () => {
             fontSize: ".8rem",
           }}
         />
-      </Button>
+      </Button> */}
       <Modal
         open={open}
         onClose={handleClose}
