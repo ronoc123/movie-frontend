@@ -11,12 +11,12 @@ const FriendCard = ({ firstname, lastname, motto, id }) => {
   const [popup, setPopup] = useState(false);
 
   const navigate = useNavigate();
-  const handleClick = (id) => {
-    navigate(`/user/${id}`);
+  const handleClick = (val) => {
+    navigate(`/user/${val}`);
   };
   return (
     <div className="friend-container">
-      <div className="info-container" onClick={handleClick}>
+      <div className="info-container" onClick={() => handleClick(id)}>
         <div className="profile-icon">
           <CgProfile />
         </div>

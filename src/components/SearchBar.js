@@ -20,6 +20,7 @@ import { useAppContext } from "../Context/appContext";
 import { useNavigate } from "react-router-dom";
 import SearchComponent from "./SearchComponent";
 import { useState } from "react";
+import { Button } from "@mui/material";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -84,7 +85,12 @@ export default function PrimarySearchAppBar() {
     closeSearch,
     searchForMovies,
     searchForUsers,
+    demoLogin,
   } = useAppContext();
+
+  const handleDemoLogin = () => {
+    demoLogin();
+  };
 
   const toggleSidebar = () => {
     changeSidebar();
@@ -207,6 +213,7 @@ export default function PrimarySearchAppBar() {
         </IconButton>
         <p>Notifications</p>
       </MenuItem> */}
+
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
           size="large"
@@ -292,6 +299,21 @@ export default function PrimarySearchAppBar() {
                   <NotificationsIcon />
                 </Badge>
               </IconButton> */}
+              {!user && (
+                <Button
+                  style={{
+                    color: "white",
+                    borderColor: "white",
+                    fontSize: ".7rem",
+                    margin: "1rem",
+                  }}
+                  onClick={handleDemoLogin}
+                  variant="outlined"
+                >
+                  Demo Account
+                </Button>
+              )}
+
               <IconButton
                 size="large"
                 edge="end"
