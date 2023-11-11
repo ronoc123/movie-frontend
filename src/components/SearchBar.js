@@ -214,7 +214,25 @@ export default function PrimarySearchAppBar() {
         <p>Notifications</p>
       </MenuItem> */}
 
-      <MenuItem onClick={handleProfileMenuOpen}>
+      {user ? (
+        <MenuItem onClick={handleMenuCloseProfile}>
+          <IconButton
+            size="large"
+            aria-label="account of current user"
+            aria-controls="primary-search-account-menu"
+            aria-haspopup="true"
+            color="inherit"
+          >
+            <AccountCircle />
+          </IconButton>
+          <p>My Profile</p>
+        </MenuItem>
+      ) : (
+        <div>
+          <MenuItem onClick={redirectUser}>Login</MenuItem>
+        </div>
+      )}
+      {/* <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
           size="large"
           aria-label="account of current user"
@@ -225,19 +243,7 @@ export default function PrimarySearchAppBar() {
           <AccountCircle />
         </IconButton>
         <p>Profile</p>
-      </MenuItem>
-      <MenuItem onClick={handleProfileMenuOpen}>
-        <IconButton
-          size="large"
-          aria-label="account of current user"
-          aria-controls="primary-search-account-menu"
-          aria-haspopup="true"
-          color="inherit"
-        >
-          <AccountCircle />
-        </IconButton>
-        <p>Profile</p>
-      </MenuItem>
+      </MenuItem> */}
     </Menu>
   );
 

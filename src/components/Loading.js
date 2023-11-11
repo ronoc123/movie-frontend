@@ -18,7 +18,7 @@ const LoadingScreen = () => {
         width: "100%",
         fontSize: "5rem",
         height: "100%",
-        background: "rgba(255, 255, 255, 0.8)", // A semi-transparent white background
+        background: "rgba(255, 255, 255, 0.2)", // A semi-transparent white background
         display: "flex",
         justifyContent: "center",
         alignItems: "center",

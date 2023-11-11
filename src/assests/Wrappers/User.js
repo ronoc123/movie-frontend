@@ -44,6 +44,21 @@ const Wrapper = styled.div`
   .title {
     font-size: 0.8rem;
   }
+  @media screen and (max-width: 800px) {
+    .follow-btn {
+      font-size: 0.8rem;
+      padding: 0.3rem;
+    }
+    .number {
+      font-size: 0.8rem;
+    }
+    .info-con {
+      font-size: 0.8rem;
+    }
+    .img-con {
+      font-size: 2rem;
+    }
+  }
 `;
 
 export default Wrapper;

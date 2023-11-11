@@ -107,6 +107,7 @@ const AppProvider = ({ children }) => {
   };
 
   const demoLogin = async () => {
+    dispatch({ type: SETUP_USER_BEGIN });
     try {
       const response = await axios.post(
         `https://movie-hub-df7ac8f36032.herokuapp.com/api/v1/auth/authenticate`,
