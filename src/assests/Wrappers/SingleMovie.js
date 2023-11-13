@@ -8,6 +8,7 @@ const Wrapper = styled.div`
   padding: 0.5rem;
   position: relative;
   transition: var(--transition);
+  width: 15rem;
 
   :hover {
   }
