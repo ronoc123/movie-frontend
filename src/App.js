@@ -34,7 +34,10 @@ function App() {
             path="/profile"
             element={user ? <ProfilePage /> : <Navigate to="/login" />}
           />
-          <Route path="/friends" element={<ViewFriendsPage />} />
+          <Route
+            path="/friends"
+            element={user ? <ViewFriendsPage /> : <Navigate to="/login" />}
+          />
         </Routes>
       </div>
       {/* <MessagingTab /> */}

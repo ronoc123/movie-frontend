@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import Wrapper from "../../assests/Wrappers/User";
-
+import { useState } from "react";
+import axios from "axios";
 import { FaUserCircle } from "react-icons/fa";
 import { useAppContext } from "../../Context/appContext";
 
@@ -16,6 +17,34 @@ const ViewableCard = () => {
     }
   };
 
+  const [imgUrl, setImgUrl] = useState(null);
+  const userId = 1; // Replace with the actual user ID
+
+  useEffect(() => {
+    const fetchImg = async () => {
+      try {
+        const response = await axios.get(
+          `https://movie-hub-df7ac8f36032.herokuapp.com/api/users/${friend}/profile-picture/${friend?.profilePicture}`,
+          {
+            responseType: "blob", // Specify 'blob' to handle binary data
+          }
+        );
+
+        const reader = new FileReader();
+
+        reader.onloadend = () => {
+          setImgUrl(reader.result);
+        };
+
+        reader.readAsDataURL(response.data); // Convert blob to data URL
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchImg();
+  }, [userId]);
+
   useEffect(() => {
     getFriends();
   }, []);
@@ -24,10 +53,7 @@ const ViewableCard = () => {
     <Wrapper>
       <div className="img-con">
         {friend?.profilePicture ? (
-          <img
-            src={`/api/users/${friend.id}/profile-picture/${friend.profilePicture}`}
-            alt="picture"
-          />
+          <img src={imgUrl} alt="picture" />
         ) : (
           <FaUserCircle />
         )}

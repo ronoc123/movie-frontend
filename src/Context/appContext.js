@@ -132,6 +132,10 @@ const AppProvider = ({ children }) => {
           `https://movie-hub-df7ac8f36032.herokuapp.com/api/v1/auth/${endPoint}`,
           currentUser
         );
+        // const response = await axios.post(
+        //   `http://localhost:8080/api/v1/auth/${endPoint}`,
+        //   currentUser
+        // );
         const { access_token, current_user } = response.data;
         dispatch({
           type: SETUP_USER_SUCCESS,
@@ -303,6 +307,7 @@ const AppProvider = ({ children }) => {
       const response = await authFetch.get(
         `https://movie-hub-df7ac8f36032.herokuapp.com/api/v1/users/info/${id}`
       );
+
       const { data } = response;
 
       dispatch({

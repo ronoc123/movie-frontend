@@ -11,8 +11,8 @@ const Wrapper = styled.div`
     /* margin-right: 1rem; */
   }
   img {
-    width: 100%;
-    height: 100%;
+    width: 7rem;
+    height: 7rem;
     border-radius: 50%;
   }
 

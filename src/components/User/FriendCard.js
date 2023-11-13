@@ -14,6 +14,7 @@ const FriendCard = ({ firstname, lastname, motto, id }) => {
   const handleClick = (val) => {
     navigate(`/user/${val}`);
   };
+
   return (
     <div className="friend-container">
       <div className="info-container" onClick={() => handleClick(id)}>
