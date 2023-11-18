@@ -4,7 +4,7 @@ import Genres from "./Genres";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import SingleMovie from "./SingleMovie";
-import Pagination from "./Pagination";
+import BasicPagination from "./navigation/BasicPagination";
 import useGenre from "../hooks/useGenre";
 import SingleModal from "./SingleModal";
 
@@ -99,11 +99,10 @@ const Movies = () => {
           })}
       </div>
       {movie.length >= 1 ? (
-        <Pagination
-          page={page}
+        <BasicPagination
+          pages={numPage}
+          getPopularMovies={getPopularMovies}
           setPage={setPage}
-          updatePage={updatePage}
-          pageAmount={numPage}
         />
       ) : (
         ""

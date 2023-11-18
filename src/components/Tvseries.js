@@ -8,6 +8,7 @@ import SingleMovie from "./SingleMovie";
 
 import useGenre from "../hooks/useGenre";
 import SingleModal from "./SingleModal";
+import BasicPagination from "./navigation/BasicPagination";
 
 const Tvseries = () => {
   const [movie, setMovie] = useState([]);
@@ -106,11 +107,10 @@ const Tvseries = () => {
           })}
       </div>
       {movie.length >= 1 ? (
-        <Pagination
-          page={page}
+        <BasicPagination
+          pages={numPage}
+          getPopularMovies={getPopularMovies}
           setPage={setPage}
-          updatePage={updatePage}
-          pageAmount={numPage}
         />
       ) : (
         ""

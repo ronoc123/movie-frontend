@@ -13,7 +13,6 @@ const Wrapper = styled.div`
   .content {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-
     justify-self: center;
     gap: 3rem;
   }
