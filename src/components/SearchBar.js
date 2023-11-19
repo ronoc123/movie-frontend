@@ -144,6 +144,12 @@ export default function PrimarySearchAppBar() {
     searchForUsers(value);
   };
 
+  const handleMobleDemoLogin = () => {
+    setAnchorEl(null);
+    handleMobileMenuClose();
+    handleDemoLogin();
+  };
+
   const menuId = "primary-search-account-menu";
   const renderMenu = (
     <Menu
@@ -215,20 +221,17 @@ export default function PrimarySearchAppBar() {
       </MenuItem> */}
 
       {user ? (
-        <MenuItem onClick={handleMenuCloseProfile}>
-          <IconButton
-            size="large"
-            aria-label="account of current user"
-            aria-controls="primary-search-account-menu"
-            aria-haspopup="true"
-            color="inherit"
-          >
-            <AccountCircle />
-          </IconButton>
-          <p>My Profile</p>
-        </MenuItem>
+        <div>
+          <MenuItem onClick={handleMenuCloseProfile}>
+            <p>My Profile</p>
+          </MenuItem>
+          <MenuItem onClick={handleLogout}>
+            <p>Logout</p>
+          </MenuItem>
+        </div>
       ) : (
         <div>
+          <MenuItem onClick={handleDemoLogin}>Demo Account</MenuItem>
           <MenuItem onClick={redirectUser}>Login</MenuItem>
         </div>
       )}
@@ -313,7 +316,7 @@ export default function PrimarySearchAppBar() {
                     fontSize: ".7rem",
                     margin: "1rem",
                   }}
-                  onClick={handleDemoLogin}
+                  onClick={handleMobleDemoLogin}
                   variant="outlined"
                 >
                   Demo Account

@@ -60,9 +60,18 @@ const Wrapper = styled.div`
   .black {
     color: black;
   }
-  @media screen and (max-width: 900px) {
-    img {
-      width: 8rem;
+  @media screen and (max-width: 1400px) {
+    .list-container:hover {
+      .fav-icon {
+        font-size: 1.5rem;
+      }
+    }
+  }
+  @media screen and (max-width: 1200px) {
+    .list-container:hover {
+      .fav-icon {
+        font-size: 1.2rem;
+      }
     }
   }
 `;
