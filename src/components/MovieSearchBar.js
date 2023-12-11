@@ -1,5 +1,3 @@
-// SearchBar.js
-
 import React, { useState } from "react";
 import { InputBase, Paper, IconButton } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
@@ -12,6 +10,8 @@ const MovieSearchBar = ({ onSearch, getPopularMovies, query, setQuery }) => {
 
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
+      e.preventDefault();
+      getPopularMovies();
       handleSearch();
     }
   };

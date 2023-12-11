@@ -273,21 +273,25 @@ export default function PrimarySearchAppBar() {
             >
               Movie Hub
             </Typography>
-            <Search onChange={(e) => handleSearch(e.target.value)}>
-              <SearchIconWrapper>
-                <SearchIcon />
-              </SearchIconWrapper>
-              <StyledInputBase
-                placeholder="Search…"
-                inputProps={{ "aria-label": "search" }}
-                onFocus={handleFocus}
-                onBlur={handleUnfocus}
-                style={{
-                  position: "relative",
-                }}
-              />
-              {showSearch && <SearchComponent />}
-            </Search>
+            {user ? (
+              <Search onChange={(e) => handleSearch(e.target.value)}>
+                <SearchIconWrapper>
+                  <SearchIcon />
+                </SearchIconWrapper>
+                <StyledInputBase
+                  placeholder="Search…"
+                  inputProps={{ "aria-label": "search" }}
+                  onFocus={handleFocus}
+                  onBlur={handleUnfocus}
+                  style={{
+                    position: "relative",
+                  }}
+                />
+                {showSearch && <SearchComponent />}
+              </Search>
+            ) : (
+              ""
+            )}
             <Box sx={{ flexGrow: 1 }} />
             <Box sx={{ display: { xs: "none", md: "flex" } }}>
               {/* <IconButton
