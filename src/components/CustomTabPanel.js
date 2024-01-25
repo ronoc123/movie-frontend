@@ -61,6 +61,7 @@ export default function BasicTabs() {
       sx={{ width: "100%" }}
       style={{
         marginBottom: "10rem",
+        minHeight: "70vh",
       }}
     >
       <Box

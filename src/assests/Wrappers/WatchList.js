@@ -3,7 +3,8 @@ import styled from "styled-components";
 const Wrapper = styled.div`
   background: var(--clr-grey);
   border-radius: 0.3rem;
-  max-height: 30rem;
+  min-height: 50vh;
+  max-height: 40rem;
   overflow-x: hidden;
   overflow-y: auto;
   display: grid;

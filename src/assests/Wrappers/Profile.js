@@ -6,7 +6,7 @@ const Wrapper = styled.div`
   .user-container {
   }
   .profile-container {
-    margin-top: 3rem;
+    margin-top: 2rem;
     width: 65%;
     display: grid;
     gap: 1rem;

@@ -16,7 +16,7 @@ const Wrapper = styled.div`
     width: 80%;
     max-width: 80rem;
     background: white;
-    /* min-height: 70%; */
+    min-height: 55vh;
     color: black;
     display: grid;
     grid-template-columns: 1fr 2fr;
