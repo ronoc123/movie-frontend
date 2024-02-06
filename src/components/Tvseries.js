@@ -25,12 +25,20 @@ const Tvseries = () => {
   const getPopularMovies = async () => {
     try {
       console.log(genreForUrl);
-      const { data } = await axios(
-        `https://api.themoviedb.org/3/discover/tv?api_key=${key}&language=en-US&page=${page}&with_genres=${genreForUrl}`
-      );
-      console.log(data);
-      setNumPage(data.total_pages);
-      setMovie(data.results);
+
+      if (genreForUrl) {
+        const { data } = await axios(
+          `https://api.themoviedb.org/3/discover/tv?api_key=${key}&language=en-US&page=${page}&with_genres=${genreForUrl}`
+        );
+        setNumPage(data.total_pages);
+        setMovie(data.results);
+      } else {
+        const { data } = await axios(
+          `https://api.themoviedb.org/3/discover/tv?api_key=${key}&language=en-US&page=${page}`
+        );
+        setNumPage(data.total_pages);
+        setMovie(data.results);
+      }
     } catch (error) {
       console.log(error);
     }
@@ -65,6 +73,7 @@ const Tvseries = () => {
       );
       setSingleMovie(data);
       setShowModal(true);
+      console.log(data);
     } catch (error) {
       console.log(error);
     }

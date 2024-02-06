@@ -11,7 +11,7 @@ import SingleModal from "./SingleModal";
 const Movies = () => {
   const [movie, setMovie] = useState([]);
   const [page, setPage] = useState(1);
-  const [activeGenres, setActiveGenres] = useState([]);
+  const [activeGenres, setActiveGenres] = useState(["horror"]);
   const [numPage, setNumPage] = useState();
   const [singleMovie, setSingleMovie] = useState();
   const [showModal, setShowModal] = useState(false);
@@ -21,11 +21,19 @@ const Movies = () => {
 
   const getPopularMovies = async () => {
     try {
-      const { data } = await axios(
-        `https://api.themoviedb.org/3/discover/movie?api_key=${key}&language=en-US&page=${page}&with_genres=${genreForUrl}`
-      );
-      setNumPage(data.total_pages);
-      setMovie(data.results);
+      if (genreForUrl) {
+        const { data } = await axios(
+          `https://api.themoviedb.org/3/discover/movie?api_key=${key}&language=en-US&page=${page}&with_genres=${genreForUrl}`
+        );
+        setNumPage(data.total_pages);
+        setMovie(data.results);
+      } else {
+        const { data } = await axios(
+          `https://api.themoviedb.org/3/discover/movie?api_key=${key}&language=en-US&page=${page}`
+        );
+        setNumPage(data.total_pages);
+        setMovie(data.results);
+      }
     } catch (error) {
       console.log(error);
     }
